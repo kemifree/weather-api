@@ -1,5 +1,4 @@
 import requests
-import pprint
 
 
 class Weather(object):
@@ -20,45 +19,54 @@ class Weather(object):
     def _call(url):
         obj = []
         results = requests.get(url).json()
-        if results['query']['count'] > 0:
+        if int(results['query']['count']) > 0:
             obj.append(WeatherObject(results['query']['results']['channel']))
-        pprint.pprint(results)
-        return obj
+            wo = WeatherObject(results['query']['results']['channel'])
+            return wo
+        else:
+            print 'No results found.'
 
 
 class WeatherObject(object):
     def __init__(self, weather_data):
-        self.weather_data = weather_data
+        self._weather_data = weather_data
 
     def description(self):
-        return self.weather_data['description']
+        return self._weather_data['description']
 
     def astronomy(self):
-        return self.weather_data['astronomy']
+        return self._weather_data['astronomy']
 
     def atmosphere(self):
-        return self.weather_data['atmosphere']
+        return self._weather_data['atmosphere']
 
     def image(self):
-        return self.weather_data['image']
+        return self._weather_data['image']
 
     def condition(self):
-        return self.weather_data['item']['condition']['text']
+        return self._weather_data['item']['condition']
 
     def forecast(self):
-        return self.weather_data['item']['forecast']
+        return self._weather_data['item']['forecast']
 
     def latitude(self):
-        return self.weather_data['item']['lat']
+        return self._weather_data['item']['lat']
 
     def longitude(self):
-        return self.weather_data['item']['lng']
+        return self._weather_data['item']['lng']
 
     def location(self):
-        return self.weather_data['location']
+        return self._weather_data['location']
 
     def units(self):
-        return self.weather_data['units']
+        return self._weather_data['units']
 
     def wind(self):
-        return self.weather_data['wind']
+        return self._weather_data['wind']
+
+
+if __name__ == '__main__':
+    weather = Weather()
+    search = weather.search('dublin')
+    condition = search.condition()
+    print condition['text']
