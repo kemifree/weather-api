@@ -1,7 +1,11 @@
 weather-api
 ===========
 
-A Python wrapper for the Yahoo Weather XML RSS feed.
+A Python wrapper for the Yahoo Weather API.
+
+With the API, you can get up-to-date weather information for any location, including 5-day forecast, wind, atmosphere, astronomy conditions, and more. You can lookup weather by woeid, city name or lat/long.
+
+For more information, check out the `API documentation`_.
 
 Install
 -------
@@ -30,3 +34,5 @@ Examples
     location = weather.lookup_by_location('dublin')
     condition = location.condition()
     print condition['text']
+
+.. _API documentation: https://developer.yahoo.com/weather/
