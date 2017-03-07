@@ -2,8 +2,17 @@ class WeatherObject(object):
     def __init__(self, weather_data):
         self._weather_data = weather_data
 
+    def last_build_date(self):
+        return self._weather_data['lastBuildDate']
+
+    def title(self):
+        return self._weather_data['title']
+
     def description(self):
         return self._weather_data['description']
+
+    def language(self):
+        return self._weather_data['language']
 
     def astronomy(self):
         return self._weather_data['astronomy']
