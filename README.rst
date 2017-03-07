@@ -19,10 +19,10 @@ Examples
     from weather import Weather
     weather = Weather()
 
-    # Look up WOEID via http://weather.yahoo.com.
+    # Lookup WOEID via http://weather.yahoo.com.
 
     lookup = weather.lookup(560743)
-    condtion = lookup.condition()
+    condition = lookup.condition()
     print condition['text']
 
     # Lookup via location name.
