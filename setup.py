@@ -4,7 +4,7 @@ with open("README.rst", "rb") as f:
     long_descr = f.read().decode("utf-8")
 
 setup(name='weather-api',
-      version='0.0.1',
+      version='0.0.2',
       description='A Python wrapper for the Yahoo Weather XML RSS feed.',
       long_description=long_descr,
       url='https://github.com/AnthonyBloomer/weather-api',

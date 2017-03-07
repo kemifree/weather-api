@@ -34,3 +34,6 @@ class WeatherObject(object):
 
     def wind(self):
         return self._weather_data['wind']
+
+    def print_obj(self):
+        return self._weather_data

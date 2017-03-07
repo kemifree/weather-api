@@ -17,10 +17,8 @@ class Weather(object):
         return results
 
     def _call(self, url):
-        obj = []
         results = requests.get(url).json()
         if int(results['query']['count']) > 0:
-            obj.append(WeatherObject(results['query']['results']['channel']))
             wo = WeatherObject(results['query']['results']['channel'])
             return wo
         else:
